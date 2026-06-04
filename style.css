@@ -1,182 +1,208 @@
 /* Global Reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
+/* Hero Background */
 .hero-bg {
-  background: url("https://www.listchallenges.com/f/lists/8d0c9117-2539-47ff-8a28-b3c4353a1e5d.jpg");
-  background-size: cover;
-  color:white;
-  background-color: white;
-
+  background: url("https://i.pinimg.com/originals/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg");
+  background-color:#230232; /* Netflix black */
+  color: white;
+  min-height: 100vh;
 }
-
-h1, p, label {
-  color: #ffffff;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
-}
-
-
-.btn {
-  background-color: #e50914;
-  color: #fff;
-}
-
 
 /* Header */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
 }
 
-/* Buttons */
-button, .btn {
-    background-color: #e50914;
-    color: #fff;
-
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-size: large;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
+header img {
+  cursor: pointer;
 }
 
-button:hover, .btn:hover {
-    background-color: #f6121d;
+header .btn {
+  background-color: #e50914; /* Netflix red */
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Headings */
-header h1 {
-    color: rgb(248, 10, 10);
-    text-align: center;
-    margin-bottom: 10px;
+header .btn:hover {
+  background-color: #f40612;
+  box-shadow: 0 0 10px rgba(229, 9, 20, 0.7);
 }
 
-/* Navigation */
-nav {
-    text-align: center;
+/* Language Selector */
+.language-selector {
+  text-align: right;
+  margin: 10px 40px;
 }
 
-nav a {
-    color: rgb(242, 240, 245);
-    text-decoration: underline;
+.language-selector select {
+  padding: 6px 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid #333;
+  background-color: #230232;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Container */
-.container {
-    padding: 20px;
-    font-size: larger;
-    display: grid;
-    place-items: center;
-}
-
-.container img {
-    width: 100%;
-    max-width: 400px;
-}
-
-/* Sections */
-.section {
-    margin-bottom: 20px;
-}
-
-.section img {
-    width: 100%;
-    max-width: 400px;
-    display: block;
-    margin-top: 10px;
+.language-selector select:hover {
+  border-color: #e50914;
 }
 
 /* Hero Section */
-.hero button, .hero .btn {
-    background-color: #e50914;
-    color: #fff;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 20px;
-    font-size: larger;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
+.hero {
+  text-align: center;
+  padding: 100px 20px;
 }
 
-.hero button:hover, .hero .btn:hover {
-    background-color: #f6121d;
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff; /* white text for Netflix look */
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.hero .btn {
+  margin-top: 20px;
+  background-color: red;
+  border-radius: 20px;
+  padding: 12px 28px;
+  font-size: larger;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero .btn:hover {
+  background-color: #f6121d;
+  transform: scale(1.05);
 }
 
 /* Divider */
 hr {
-    
-    border: none;
-    height: 6px;
-    background: linear-gradient(to right, red, pink, white);
-    border-radius:50px;
-    transform: rotate(-1deg) scaleX(1.25);
-    margin: 0px;
-    border:none;
-    position: relative;
-    height:5px;
-    z-index: 1;
-    background-color: rgb(9, 6, 116);
+  border: none;
+  height: 3px;
+  background: linear-gradient(to right, #e50914,rgb(201, 22, 22), #8c0303); /* Netflix red into dark */
+  border-radius: 50px;
+  margin: 1px auto;
+  width: 100%;
+  opacity: 0.9;
 }
-.section {
-  margin-bottom: 20px;
-  padding: 20px;
-  border-radius: 10px;
-}
-/* style.css */
+
+/* Trending Section */
 .trending {
-  background-color:rgb(9, 6, 116);/* dark background */
-  color:white;
-  padding: 20px;          /* optional spacing */
+  background-color: #230232; /* Netflix black */
+  color: white;
+  padding: 40px;
+  text-align: center;
 }
-.foooter{
-    background-color:rgb(9, 6, 116);
-    color: white;
+
+.trending h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
-  .section {
-      padding: 60px 20px;
-    }
-    .row {
-      display: flex;
-      overflow-x: auto;
-    }
-    .row img {
-      width: 200px;
-      margin-right: 10px;
-      border-radius: 4px;
-      transition: transform 0.3s;
-    }
-    .row img:hover {
-      transform: scale(1.1);
-    }
-    #popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.8);
-      text-align:start;
-      transition: opacity 0.3s ease;
-    }
-    #popup img {
-      margin-top: 5%;
-      max-width: 100%;
-      max-height: 100%;
-      border: 3px solid white;
-      box-shadow: 0 0 20px rgba(255,255,255,0.7);
-    }
-    .More{
-      background-color: rgb(9, 6, 116);
-      color:black;
-    }
+
+.trending img {
+  margin: 10px;
+  border-radius: 6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.trending img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 15px rgba(255,255,255,0.6);
+}
+
+/* Popup */
+#popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:#230232; /* dark overlay */
+  text-align: center;
+  padding-top: 50px;
+}
+
+#popup img {
+  margin: 10px;
+  max-height: 80%;
+  border-radius: 8px;
+  border: 3px solid white;
+  box-shadow: 0 0 20px rgba(255,255,255,0.7);
+}
+
+/* Reasons Section */
+.reasons-section {
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.reasons-section h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.reason-card {
+  background:#230232;/* Netflix dark gray */
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+}
+
+.reason-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+}
+
+.reason-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.end {
+  background:#230232;/* Netflix black */
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1.1rem;
+  border-top: 3px solid #e50914;
+}
+
+.end a {
+  color: #fff;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.end a:hover {
+  color: #e50914;
+}
