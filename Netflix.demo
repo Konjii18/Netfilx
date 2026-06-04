@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Demo Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    <!--css-->
+    /* Global Reset */
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif; }
+
+    /* Hero Background */
+    .hero-bg {
+      background: url("https://i.pinimg.com/originals/19/8b/2f/198b2f01e73b905772279616eccc7c65.jpg");
+      background-color:#230232;
+      color:white;
+      min-height:100vh;
+    }
+
+    /* Header */
+    header { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; }
+    header img { cursor:pointer; }
+    header .btn {
+      background-color:#e50914; color:#fff; padding:10px 20px; border-radius:6px;
+      font-weight:bold; text-decoration:none; transition:background 0.3s ease, box-shadow 0.3s ease;
+    }
+    header .btn:hover { background-color:#f40612; box-shadow:0 0 10px rgba(229,9,20,0.7); }
+
+    /* Language Selector */
+    .language-selector { text-align:right; margin:10px 40px; }
+    .language-selector select {
+      padding:6px 12px; font-size:1rem; border-radius:4px; border:1px solid #333;
+      background-color:#230232; color:#fff; cursor:pointer; transition:all 0.3s ease;
+    }
+    .language-selector select:hover { border-color:#e50914; }
+
+    /* Hero Section */
+    .hero { text-align:center; padding:100px 20px; }
+    .hero h1 { font-size:3rem; margin-bottom:20px; color:#fff; }
+    .hero p { font-size:1.2rem; margin-bottom:15px; color:#fff; }
+    .hero .btn {
+      margin-top:20px; background-color:red; border-radius:20px; padding:12px 28px;
+      font-size:larger; font-weight:bold; transition:background 0.3s ease, transform 0.3s ease;
+    }
+    .hero .btn:hover { background-color:#f6121d; transform:scale(1.05); }
+
+    /* Divider */
+    hr { border:none; height:3px; background:linear-gradient(to right,#e50914,rgb(201,22,22),#8c0303);
+      border-radius:50px; margin:1px auto; width:100%; opacity:0.9; }
+
+    /* Trending Section */
+    .trending { background-color:#230232; color:white; padding:40px; text-align:center; }
+    .trending h2 { font-size:2rem; margin-bottom:20px; }
+    .trending img { margin:10px; border-radius:6px; transition:transform 0.3s ease, box-shadow 0.3s ease; cursor:pointer; }
+    .trending img:hover { transform:scale(1.08); box-shadow:0 0 15px rgba(255,255,255,0.6); }
+
+    /* Popup */
+    #popup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:#230232;
+      text-align:center; padding-top:50px; }
+    #popup img { margin:10px; max-height:80%; border-radius:8px; border:3px solid white;
+      box-shadow:0 0 20px rgba(255,255,255,0.7); }
+
+    /* Reasons Section */
+    .reasons-section { margin:50px auto; padding:20px; }
+    .reasons-section h3 { font-size:2rem; margin-bottom:20px; color:white; }
+    .reasons-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+    .reason-card {
+      background:#230232; padding:20px; border-radius:12px; text-align:center;
+      transition:transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow:0 0 15px rgba(255,0,255,0.2);
+    }
+    .reason-card:hover { transform:translateY(-5px); box-shadow:0 0 20px rgba(255,0,255,0.4); }
+    .reason-icon { font-size:2rem; margin-bottom:10px; }
+
+    /* Footer */
+    .end { background:#230232; color:white; text-align:center; padding:40px 20px;
+      font-size:1.1rem; border-top:3px solid #e50914; }
+    .end a { color:#fff; text-decoration:underline; transition:color 0.3s ease; }
+    .end a:hover { color:#e50914; }
+  </style>
+  <!--end of css -->
+</head>
+<body>
+  <div class="hero-bg">
+    <header>
+      <img src="https://th.bing.com/th/id/R.033c9f5edecaa49d48e351389b5711c5?rik=XGsgw9KCXp%2fvXg&pid=ImgRaw&r=0" width="130" alt="Netflix Logo">
+      <a href="#" class="btn">Sign In</a>
+    </header>
+
+    <div class="language-selector">
+      <select id="language" onchange="changeLanguage()">
+        <option value="en">English</option>
+      </select>
+    </div>
+
+    <main class="container hero">
+      <h1>Unlimited movies,<br>TV shows, and more</h1>
+      <p>Starts at USD 2.99. Cancel anytime.</p>
+      <p>Ready to watch? Enter your email to create or restart your membership.</p>
+      <form>
+        <input type="email" placeholder="Enter your email here" id="email" required>
+        <button type="submit" class="btn">Get Started</button>
+      </form>
+    </main>
+  </div>
+  <hr>
+
+  <section class="trending">
+    <h2>Trending Now</h2>
+        <img src="https://img-cdn.publive.online/fit-in/1280x720/filters:format(webp)/industry-wired/media/media_files/2026/03/09/dhurandhar-2-trailer-breakdown-2026-03-09-22-28-08.jpg"  
+         alt="Dhurandhar 2 Poster" width="250" height="250" onclick="showPopup()"> 
+    <img src="https://thf.bing.com/th/id/OIP.JxMCX6fz1csBXlvSeHYd7gHaKk?w=126&h=180&c=7&r=0&o=7&cb=thfc1falcon&dpr=1.3&pid=1.7&rm=3" 
+         alt="Kapil Shamra Poster" width="250" height="250" onclick="showPopup()">
+    <img src="https://images.timesnownews.com/thumb/msid-154342409,updatedat-1779182344000,thumbsize-54036,width-1280,height-720,resizemode-75/154342409.jpg" 
+         alt="Poster" width="250" height="250" onclick="showPopup()">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.gF-bvz9CWOQbbin4Gjy22gHaJQ?cb=thfc1falcon&rs=1&pid=ImgDetMain&o=7&rm=3" 
+         alt="Poster" width="250" height="250" onclick="showPopup()">
+
+    <!-- Popup -->
+    <div id="popup" onclick="hidePopup()">
+      <img src="C:\Users\Acer\OneDrive\Desktop\Netflix\Screenshot 2026-05-25 164629.png" height="300" alt="Full Poster">
+      <img src="C:\Users\Acer\OneDrive\Desktop\Netflix\Screenshot 2026-05-25 165104.png" height="300" alt="Full Poster">
+         <img src="C:\Users\Acer\OneDrive\Desktop\Netflix\Screenshot 2026-05-25 234842.png" height="300" alt="Full Poster">
+      <img src="C:\Users\Acer\OneDrive\Desktop\Netflix\Screenshot 2026-05-25 235826.png" height="300" alt="Full Poster">
+    </div>
+
+    <div class="reasons-section">
+      <h3>More Reasons to Join</h3>
+      <div class="reasons-grid">
+        <div class="reason-card"><div class="reason-icon">📺</div><h3>Enjoy on your TV</h3><p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p></div>
+        <div class="reason-card"><div class="reason-icon">⬇️</div><h3>Download your shows</h3><p>Save your favorites easily and watch offline anytime.</p></div>
+        <div class="reason-card"><div class="reason-icon">✨</div><h3>Watch everywhere</h3><p>Stream unlimited movies and TV shows on phones, tablets, laptops, and TVs.</p></div>
+        <div class="reason-card"><div class="reason-icon">👩‍👩‍👧‍👦</div><h3>Create profiles for kids</h3><p>Send kids on adventures with their favorite characters in a space made just for them.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="end">
+    <p>© 2026 Netflix Demo. All rights reserved.</p>
+    <p><a href="#">Privacy</a> | <a href="#">Terms of Use</a> | <a href="#">Help Center</a></p>
+  </footer>
+<!--java script -->
+  <script>
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+    function hidePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+    function changeLanguage() {
+      const lang = document.getElementById('language').value;
+      alert('Language changed to: ' + lang + '. (Functionality to be implemented)');
+    }
+  </script>
+</body>
+</html>
